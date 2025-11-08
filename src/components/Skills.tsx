@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { FiCode, FiDatabase, FiSmartphone, FiCloud, FiShield, FiGitBranch } from "react-icons/fi";
+import { FiCode, FiDatabase, FiSmartphone, FiCloud, FiShield } from "react-icons/fi";
 
 export default function Skills() {
     const skillCategories = [

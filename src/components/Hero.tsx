@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { FiGithub, FiMail, FiLinkedin, FiDownload, FiMapPin, FiCalendar, FiAward } from "react-icons/fi";
+import Image from "next/image";
 
 export default function Hero() {
     const stats = [
@@ -12,7 +13,7 @@ export default function Hero() {
     return (
         <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 pt-16">
             {/* Efeitos de fundo */}
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-950/70 via-blue-900/40 to-transparent"></div>
             <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
             <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
 
@@ -55,12 +56,15 @@ export default function Hero() {
                                 className="relative"
                             >
                                 <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full blur-2xl opacity-30"></div>
-                                <img
-                                    src="/avatar.png"
-                                    alt="José Mboane"
-                                    className="relative w-80 h-80 rounded-full border-4 border-blue-400/30 shadow-2xl shadow-blue-500/30 object-cover"
-                                />
-
+                                <div className="relative w-80 h-80 rounded-full overflow-hidden border-4 border-blue-400/30 shadow-2xl shadow-blue-500/30">
+                                    <Image
+                                        src="/avatar2.png"
+                                        alt="José Mboane"
+                                        fill
+                                        sizes="(max-width: 768px) 200px, 320px"
+                                        className="object-cover"
+                                    />
+                                </div>
                                 {/* Badge online */}
                                 <motion.div
                                     initial={{ scale: 0 }}
@@ -91,6 +95,49 @@ export default function Hero() {
                                         <div className="text-white font-semibold text-sm">{stat.value}</div>
                                         <div className="text-gray-400 text-xs">{stat.label}</div>
                                     </motion.div>
+                                ))}
+                            </motion.div>
+
+                            {/* Redes sociais - Mesmo espaçamento que os Stats */}
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 1.4 }}
+                                className="flex justify-center gap-4 mt-8"
+                            >
+                                {[
+                                    {
+                                        icon: <FiGithub />,
+                                        link: "https://github.com/mboanejose4",
+                                        label: "GitHub",
+                                        color: "hover:text-gray-300",
+                                        bg: "hover:bg-gray-500/20"
+                                    },
+                                    {
+                                        icon: <FiLinkedin />,
+                                        link: "https://www.linkedin.com/in/mboane-jos%C3%A9-96b425370/",
+                                        label: "LinkedIn",
+                                        color: "hover:text-blue-400",
+                                        bg: "hover:bg-blue-500/20"
+                                    },
+                                    {
+                                        icon: <FiMail />,
+                                        link: "mailto:josemboane5@gmail.com",
+                                        label: "Email",
+                                        color: "hover:text-red-400",
+                                        bg: "hover:bg-red-500/20"
+                                    }
+                                ].map((item, index) => (
+                                    <motion.a
+                                        key={index}
+                                        href={item.link}
+                                        target="_blank"
+                                        whileHover={{ scale: 1.3, y: -5 }}
+                                        className={`text-2xl text-gray-500 ${item.color} transition-all duration-300 p-3 rounded-2xl bg-white/5 ${item.bg} backdrop-blur-sm`}
+                                        aria-label={item.label}
+                                    >
+                                        {item.icon}
+                                    </motion.a>
                                 ))}
                             </motion.div>
                         </div>
@@ -182,18 +229,18 @@ export default function Hero() {
                             </div>
                         </motion.div>
 
-                        {/* Botões de ação */}
+                        {/* Botões de ação - Mesma largura que as informações de contato */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 1.2 }}
-                            className="flex flex-col sm:flex-row gap-4 mb-8"
+                            className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 max-w-2xl"
                         >
                             <motion.a
                                 href="#contact"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-8 py-4 rounded-xl font-semibold shadow-2xl shadow-blue-500/30 hover:shadow-cyan-500/40 transition-all duration-300 flex items-center justify-center gap-3 text-lg"
+                                className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-6 py-4 rounded-xl font-semibold shadow-2xl shadow-blue-500/30 hover:shadow-cyan-500/40 transition-all duration-300 flex items-center justify-center gap-3 text-lg w-full"
                             >
                                 <FiMail className="text-xl" />
                                 Entrar em Contato
@@ -203,54 +250,11 @@ export default function Hero() {
                                 href="/cv-jose-mboane.pdf"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="border-2 border-blue-400/50 text-blue-300 px-8 py-4 rounded-xl font-semibold hover:bg-blue-500/10 transition-all duration-300 flex items-center justify-center gap-3 text-lg"
+                                className="border-2 border-blue-400/50 text-blue-300 px-6 py-4 rounded-xl font-semibold hover:bg-blue-500/10 transition-all duration-300 flex items-center justify-center gap-3 text-lg w-full"
                             >
                                 <FiDownload className="text-xl" />
                                 Baixar CV
                             </motion.a>
-                        </motion.div>
-
-                        {/* Redes sociais */}
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 1.4 }}
-                            className="flex justify-center lg:justify-start gap-6"
-                        >
-                            {[
-                                {
-                                    icon: <FiGithub />,
-                                    link: "https://github.com/mboanejose4",
-                                    label: "GitHub",
-                                    color: "hover:text-gray-300",
-                                    bg: "hover:bg-gray-500/20"
-                                },
-                                {
-                                    icon: <FiLinkedin />,
-                                    link: "https://www.linkedin.com/in/mboane-jos%C3%A9-96b425370/",
-                                    label: "LinkedIn",
-                                    color: "hover:text-blue-400",
-                                    bg: "hover:bg-blue-500/20"
-                                },
-                                {
-                                    icon: <FiMail />,
-                                    link: "mailto:josemboane5@gmail.com",
-                                    label: "Email",
-                                    color: "hover:text-red-400",
-                                    bg: "hover:bg-red-500/20"
-                                }
-                            ].map((item, index) => (
-                                <motion.a
-                                    key={index}
-                                    href={item.link}
-                                    target="_blank"
-                                    whileHover={{ scale: 1.3, y: -5 }}
-                                    className={`text-3xl text-gray-500 ${item.color} transition-all duration-300 p-4 rounded-2xl bg-white/5 ${item.bg} backdrop-blur-sm`}
-                                    aria-label={item.label}
-                                >
-                                    {item.icon}
-                                </motion.a>
-                            ))}
                         </motion.div>
                     </motion.div>
                 </div>
@@ -260,7 +264,7 @@ export default function Hero() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1.8 }}
-                    className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+                    className="absolute bottom-8 left-1/2 transform -translate-x-1/2 mt-8"
                 >
                     <motion.div
                         animate={{ y: [0, 10, 0] }}

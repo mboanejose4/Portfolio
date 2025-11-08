@@ -6,9 +6,9 @@ export default function Projects() {
     const projects = [
         {
             id: 1,
-            title: "Sistema de Gestão Académica",
-            description: "Plataforma completa para gestão de instituições de ensino com módulos para alunos, professores e administração.",
-            technologies: ["React", "Node.js", "MongoDB", "Express", "JWT"],
+            title: "Sistema de Gestão de Furo de água",
+            description: "Web application para gerir funcionaários e clientes, bem como a emissão de facturas e pagamaento online.",
+            technologies: ["React", "Node.js", "MySql", "Express", "JWT"],
             image: "/project-academic.png",
             github: "https://github.com/mboanejose4/academic-system",
             live: "https://academic-system.demo.com",
@@ -16,19 +16,18 @@ export default function Projects() {
         },
         {
             id: 2,
-            title: "App Mobile E-commerce",
-            description: "Aplicativo de comércio eletrónico com carrinho de compras, pagamentos integrados e gestão de pedidos.",
-            technologies: ["React Native", "Firebase", "Stripe", "Redux"],
+            title: "ServiMoz - App Mobile",
+            description: "Aplicativo para localizar estabelecimentos públicos que dispõem de vários serviços e agandar um determinado serviço.",
+            technologies: ["React Native", "Laravel", "Stripe", "Redux"],
             image: "/project-ecommerce.png",
             github: "https://github.com/mboanejose4/ecommerce-app",
-            live: "https://play.google.com/store/apps/details?id=com.ecommerce.app",
             featured: true
         },
         {
             id: 3,
             title: "API REST Laravel",
             description: "API robusta para gestão de conteúdos com autenticação, autorização e documentação completa.",
-            technologies: ["Laravel", "MySQL", "PHPUnit", "Swagger"],
+            technologies: ["Laravel", "MySQL", "PHPUnit", "Postman"],
             image: "/project-api.png",
             github: "https://github.com/mboanejose4/laravel-api",
             live: "https://api.demo.com/docs",
