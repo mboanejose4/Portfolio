@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { FiMenu, FiX, FiHome, FiUser, FiCode, FiFolder, FiMail } from "react-icons/fi";
+import { FiMenu, FiX, FiHome, FiUser, FiCode, FiFolder, FiMail, FiBriefcase } from "react-icons/fi";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -11,6 +11,7 @@ export default function Navbar() {
     const navItems = [
         { name: "Início", href: "#home", icon: <FiHome /> },
         { name: "Sobre", href: "#about", icon: <FiUser /> },
+        { name: "Serviços", href: "#services", icon: <FiBriefcase /> },
         { name: "Skills", href: "#skills", icon: <FiCode /> },
         { name: "Projetos", href: "#projects", icon: <FiFolder /> },
         { name: "Contacto", href: "#contact", icon: <FiMail /> }

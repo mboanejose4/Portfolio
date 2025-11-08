@@ -45,7 +45,6 @@ export default function Contact() {
         const formData = new FormData(e.currentTarget);
 
         try {
-            // ⚠️ SUBSTITUA "YOUR_FORM_ID" PELO SEU ID REAL DO FORMSPREE ⚠️
             const response = await fetch("https://formspree.io/f/xjkjbrjo", {
                 method: "POST",
                 body: formData,
@@ -61,9 +60,8 @@ export default function Contact() {
                 alert("Erro ao enviar mensagem. Tente novamente.");
             }
         } catch (error) {
+            console.error("Erro ao enviar mensagem:", error);
             alert("Erro de conexão. Tente novamente.");
-        } finally {
-            setIsSubmitting(false);
         }
     };
 

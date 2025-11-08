@@ -10,7 +10,7 @@ export default function Projects() {
             description: "Web application para gerir funcionaários e clientes, bem como a emissão de facturas e pagamaento online.",
             technologies: ["React", "Node.js", "MySql", "Express", "JWT"],
             image: "/project-academic.png",
-            github: "https://github.com/mboanejose4/academic-system",
+            github: "https://github.com/mboanejose4/RodAgua_React_Frontend",
             live: "https://academic-system.demo.com",
             featured: true
         },
@@ -29,7 +29,7 @@ export default function Projects() {
             description: "API robusta para gestão de conteúdos com autenticação, autorização e documentação completa.",
             technologies: ["Laravel", "MySQL", "PHPUnit", "Postman"],
             image: "/project-api.png",
-            github: "https://github.com/mboanejose4/laravel-api",
+            github: "https://github.com/mboanejose4/servimoz_api_backend",
             live: "https://api.demo.com/docs",
             featured: false
         }
