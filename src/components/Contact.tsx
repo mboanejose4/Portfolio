@@ -80,13 +80,13 @@ export default function Contact() {
                     viewport={{ once: true }}
                     className="text-center mb-20"
                 >
-                    <h2 className="text-5xl font-bold mb-6">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
                         <span className="bg-gradient-to-r from-blue-400 to-cyan-400 text-transparent bg-clip-text">
                             Vamos Trabalhar Juntos
                         </span>
                     </h2>
-                    <p className="text-gray-400 text-xl max-w-2xl mx-auto">
-                        Pronto para iniciar seu próximo projeto? Entre em contato e vamos conversar!
+                    <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto">
+                        Pronto para iniciar seu próximo projeto? <br /> Entre em contato e vamos conversar!
                     </p>
                     <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 mx-auto mt-8"></div>
                 </motion.div>
@@ -100,7 +100,7 @@ export default function Contact() {
                         viewport={{ once: true }}
                         className="space-y-6"
                     >
-                        <h3 className="text-3xl font-semibold text-gray-200 mb-8">
+                        <h3 className="text-2xl sm:text-3xl font-semibold text-gray-200 mb-6 sm:mb-8">
                             Entre em Contato
                         </h3>
 
@@ -144,7 +144,7 @@ export default function Contact() {
                                 <FiMessageCircle className="text-green-400" />
                                 Prefere WhatsApp?
                             </h4>
-                            <p className="text-gray-400 text-sm">
+                            <p className="text-gray-400 text-sm leading-relaxed mb-4">
                                 Clique no card do WhatsApp para iniciar uma conversa direta.
                                 Respondo rapidamente durante o horário comercial.
                             </p>
@@ -159,7 +159,7 @@ export default function Contact() {
                         viewport={{ once: true }}
                         className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 border border-gray-700 shadow-2xl shadow-black/50"
                     >
-                        <h3 className="text-2xl font-semibold text-gray-200 mb-6">Envie uma Mensagem</h3>
+                        <h4 className="text-lg font-semibold text-gray-200 mb-2 flex items-center gap-2">Envie uma Mensagem</h4>
 
                         {isSubmitted ? (
                             <motion.div
@@ -171,7 +171,7 @@ export default function Contact() {
                                     <FiCheck className="text-white text-2xl" />
                                 </div>
                                 <h4 className="text-2xl font-semibold text-gray-200 mb-4">Mensagem Enviada!</h4>
-                                <p className="text-gray-400 mb-6">
+                                <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto">
                                     Obrigado pelo seu contato. Responderei em breve!
                                 </p>
                                 <motion.button

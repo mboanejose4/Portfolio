@@ -46,12 +46,12 @@ export default function Services() {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-5xl font-bold mb-6">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
                         <span className="bg-gradient-to-r from-blue-400 to-cyan-400 text-transparent bg-clip-text">
                             Serviços & Especialidades
                         </span>
                     </h2>
-                    <p className="text-gray-400 text-xl max-w-2xl mx-auto">
+                    <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto">
                         Soluções completas em desenvolvimento de software
                     </p>
                     <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 mx-auto mt-8"></div>

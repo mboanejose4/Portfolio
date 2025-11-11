@@ -49,12 +49,12 @@ export default function Projects() {
                     viewport={{ once: true }}
                     className="text-center mb-20"
                 >
-                    <h2 className="text-5xl font-bold mb-6">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
                         <span className="bg-gradient-to-r from-blue-400 to-cyan-400 text-transparent bg-clip-text">
                             Projetos em Destaque
                         </span>
                     </h2>
-                    <p className="text-gray-400 text-xl max-w-2xl mx-auto">
+                    <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto">
                         Soluções reais desenvolvidas com as melhores práticas e tecnologias modernas
                     </p>
                     <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 mx-auto mt-8"></div>
@@ -151,7 +151,7 @@ export default function Projects() {
                         <h3 className="text-2xl font-semibold text-gray-200 mb-4">
                             Interessado em trabalhar juntos?
                         </h3>
-                        <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
+                        <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto">
                             Vamos transformar sua ideia em uma solução digital incrível.
                             Entre em contato para discutirmos seu projeto.
                         </p>
@@ -159,7 +159,7 @@ export default function Projects() {
                             href="#contact"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-8 py-4 rounded-xl font-semibold shadow-lg shadow-blue-500/30 hover:shadow-cyan-500/40 transition-all duration-300"
+                            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-8 py-4 rounded-xl font-semibold shadow-lg shadow-blue-500/30 hover:shadow-cyan-500/40 transition-all duration-300 mt-6"
                         >
                             Iniciar Projeto
                         </motion.a>

@@ -57,12 +57,12 @@ export default function Skills() {
                     viewport={{ once: true }}
                     className="text-center mb-20"
                 >
-                    <h2 className="text-5xl font-bold mb-6">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
                         <span className="bg-gradient-to-r from-blue-400 to-cyan-400 text-transparent bg-clip-text">
                             Stack Tecnológica
                         </span>
                     </h2>
-                    <p className="text-gray-400 text-xl max-w-2xl mx-auto">
+                    <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto">
                         Tecnologias e ferramentas que domino para criar soluções completas e modernas
                     </p>
                     <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 mx-auto mt-8"></div>
@@ -80,19 +80,22 @@ export default function Skills() {
                             className="group"
                         >
                             <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 border border-gray-700 hover:border-blue-500/30 shadow-2xl shadow-black/50 h-full transition-all duration-300">
-                                {/* Category header */}
-                                <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r ${category.color} mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                                    <div className="text-2xl text-white">
-                                        {category.icon}
+                                {/* Category header - ÍCONE CENTRALIZADO */}
+                                <div className="flex justify-center mb-6">
+                                    <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r ${category.color} group-hover:scale-110 transition-transform duration-300`}>
+                                        <div className="text-2xl text-white">
+                                            {category.icon}
+                                        </div>
                                     </div>
                                 </div>
 
-                                <h3 className="text-2xl font-semibold text-gray-200 mb-4 group-hover:text-white transition-colors">
+                                {/* Título centralizado */}
+                                <h3 className="text-2xl font-semibold text-gray-200 mb-4 text-center group-hover:text-white transition-colors">
                                     {category.title}
                                 </h3>
 
-                                {/* Skills list */}
-                                <div className="flex flex-wrap gap-3">
+                                {/* Skills list - centralizada */}
+                                <div className="flex flex-wrap justify-center gap-3">
                                     {category.skills.map((skill, skillIndex) => (
                                         <motion.span
                                             key={skillIndex}

@@ -11,129 +11,74 @@ export default function Hero() {
     ];
 
     return (
-        <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 pt-16">
+        <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 pt-20 pb-10">
             {/* Efeitos de fundo */}
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-950/70 via-blue-900/40 to-transparent"></div>
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
 
-            {/* Partículas animadas */}
-            <div className="absolute inset-0">
-                {[...Array(15)].map((_, i) => (
+            <div className="max-w-7xl mx-auto mobile-container relative z-20 w-full">
+                <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12">
+                    {/* Avatar - Topo no Mobile */}
                     <motion.div
-                        key={i}
-                        className="absolute w-1 h-1 bg-blue-400 rounded-full"
-                        initial={{ opacity: 0, y: -100 }}
-                        animate={{
-                            opacity: [0, 1, 0],
-                            y: [0, 100],
-                            x: Math.sin(i) * 80
-                        }}
-                        transition={{
-                            duration: 3,
-                            repeat: Infinity,
-                            delay: i * 0.2
-                        }}
-                    />
-                ))}
-            </div>
-
-            <div className="max-w-7xl mx-auto px-6 relative z-20 w-full">
-                <div className="grid lg:grid-cols-3 gap-12 items-center">
-                    {/* Avatar Redondo à Esquerda (Estilo GitHub) */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: -50 }}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="lg:col-span-1 flex justify-center lg:justify-start"
+                        className="flex justify-center sm:mx-0 lg:justify-start order-1 lg:order-1 lg:mt-24"
                     >
                         <div className="relative">
-                            {/* Efeito de brilho atrás */}
-                            <motion.div
-                                initial={{ scale: 0, rotate: -180 }}
-                                animate={{ scale: 1, rotate: 0 }}
-                                transition={{ type: "spring", delay: 0.3, duration: 1 }}
-                                className="relative"
-                            >
-                                <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full blur-2xl opacity-30"></div>
-                                <div className="relative w-80 h-80 rounded-full overflow-hidden border-4 border-blue-400/30 shadow-2xl shadow-blue-500/30">
+                            <div className="relative flex justify-center md:justify-start mt-4">
+                                <div className="absolute -inset-3 sm:-inset-4 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full blur-xl sm:blur-2xl opacity-30"></div>
+                                <div className="relative w-60 h-60 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-blue-400/30 shadow-lg sm:shadow-2xl shadow-blue-500/30">
                                     <Image
                                         src="/avatar2.png"
                                         alt="José Mboane"
                                         fill
-                                        sizes="(max-width: 768px) 200px, 320px"
+                                        sizes="(max-width: 640px) 240px, (max-width: 1024px) 288px, 320px"
                                         className="object-cover"
+                                        priority
                                     />
                                 </div>
-                                {/* Badge online */}
-                                <motion.div
-                                    initial={{ scale: 0 }}
-                                    animate={{ scale: 1 }}
-                                    transition={{ delay: 0.8 }}
-                                    className="absolute bottom-6 right-6 w-6 h-6 bg-green-500 border-4 border-gray-900 rounded-full"
-                                >
-                                    <div className="w-full h-full bg-green-400 rounded-full animate-pulse"></div>
-                                </motion.div>
-                            </motion.div>
+                            </div>
 
-                            {/* Stats abaixo do avatar */}
+                            {/* Stats */}
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.6 }}
-                                className="grid grid-cols-3 gap-4 mt-8"
+                                className="grid grid-cols-3 gap-3 sm:gap-4 mt-6"
                             >
                                 {stats.map((stat, index) => (
                                     <motion.div
                                         key={index}
                                         whileHover={{ scale: 1.05 }}
-                                        className="text-center p-4 bg-gray-800/50 rounded-xl border border-gray-700 backdrop-blur-sm"
+                                        className="text-center p-3 sm:p-4 bg-gray-800/50 rounded-xl border border-gray-700 backdrop-blur-sm"
                                     >
-                                        <div className="text-blue-400 text-lg mb-1 flex justify-center">
+                                        <div className="text-blue-400 text-sm sm:text-lg mb-1 flex justify-center">
                                             {stat.icon}
                                         </div>
-                                        <div className="text-white font-semibold text-sm">{stat.value}</div>
+                                        <div className="text-white font-semibold text-xs sm:text-sm">{stat.value}</div>
                                         <div className="text-gray-400 text-xs">{stat.label}</div>
                                     </motion.div>
                                 ))}
                             </motion.div>
 
-                            {/* Redes sociais - Mesmo espaçamento que os Stats */}
+                            {/* Redes sociais */}
                             <motion.div
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 1.4 }}
-                                className="flex justify-center gap-4 mt-8"
+                                className="flex justify-center gap-3 sm:gap-4 mt-6"
                             >
                                 {[
-                                    {
-                                        icon: <FiGithub />,
-                                        link: "https://github.com/mboanejose4",
-                                        label: "GitHub",
-                                        color: "hover:text-gray-300",
-                                        bg: "hover:bg-gray-500/20"
-                                    },
-                                    {
-                                        icon: <FiLinkedin />,
-                                        link: "https://www.linkedin.com/in/mboane-jos%C3%A9-96b425370/",
-                                        label: "LinkedIn",
-                                        color: "hover:text-blue-400",
-                                        bg: "hover:bg-blue-500/20"
-                                    },
-                                    {
-                                        icon: <FiMail />,
-                                        link: "mailto:josemboane5@gmail.com",
-                                        label: "Email",
-                                        color: "hover:text-red-400",
-                                        bg: "hover:bg-red-500/20"
-                                    }
+                                    { icon: <FiGithub />, link: "https://github.com/mboanejose4", label: "GitHub" },
+                                    { icon: <FiLinkedin />, link: "https://www.linkedin.com/in/mboane-jos%C3%A9-96b425370/", label: "LinkedIn" },
+                                    { icon: <FiMail />, link: "mailto:josemboane5@gmail.com", label: "Email" }
                                 ].map((item, index) => (
                                     <motion.a
                                         key={index}
                                         href={item.link}
                                         target="_blank"
-                                        whileHover={{ scale: 1.3, y: -5 }}
-                                        className={`text-2xl text-gray-500 ${item.color} transition-all duration-300 p-3 rounded-2xl bg-white/5 ${item.bg} backdrop-blur-sm`}
+                                        whileHover={{ scale: 1.2, y: -2 }}
+                                        className="text-xl sm:text-2xl text-gray-500 hover:text-blue-400 transition-all duration-300 p-2 sm:p-3 rounded-xl bg-white/5 hover:bg-blue-500/20 backdrop-blur-sm"
                                         aria-label={item.label}
                                     >
                                         {item.icon}
@@ -143,25 +88,25 @@ export default function Hero() {
                         </div>
                     </motion.div>
 
-                    {/* Informações à Direita */}
+                    {/* Informações - Abaixo no Mobile */}
                     <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="lg:col-span-2 text-center lg:text-left"
+                        className="text-center lg:text-left order-2 lg:order-2 flex-1"
                     >
                         {/* Badge de status */}
                         <motion.div
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4 }}
-                            className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/30 rounded-full mb-6"
+                            className="inline-flex items-center gap-2 px-3 py-1 sm:px-4 sm:py-2 bg-green-500/10 border border-green-500/30 rounded-full mb-4 sm:mb-6"
                         >
-                            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                            <span className="text-green-400 text-sm font-medium">Disponível para novos projetos</span>
+                            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full animate-pulse"></div>
+                            <span className="text-green-400 text-xs sm:text-sm font-medium">Disponível para novos projetos</span>
                         </motion.div>
 
-                        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight mb-6">
+                        <h1 className="mobile-title font-black tracking-tight mb-4 sm:mb-6 md:text-7xl">
                             <span className="bg-gradient-to-r from-blue-300 via-white to-cyan-300 text-transparent bg-clip-text drop-shadow-2xl">
                                 José Mboane
                             </span>
@@ -171,18 +116,19 @@ export default function Hero() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.6 }}
-                            className="flex items-center justify-center lg:justify-start gap-2 text-blue-300 mb-6"
+                            className="flex items-center justify-center lg:justify-start gap-2 text-blue-300 mb-4 sm:mb-6"
                         >
-                            <FiMapPin className="text-xl" />
-                            <span className="text-xl">Moçambique, Matola, Khongolote</span>
+                            <FiMapPin className="text-lg sm:text-xl" />
+                            <span className="mobile-subtitle">Moçambique, Matola</span>
                         </motion.div>
 
                         <motion.p
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.8 }}
-                            className="text-xl md:text-2xl text-gray-300 leading-relaxed mb-8 max-w-2xl"
+                            className="mobile-text text-gray-300 leading-relaxed mb-6 sm:mb-8 max-w-2xl"
                         >
+
                             Desenvolvedor <span className="text-blue-400 font-semibold">Full-Stack</span> &
                             <span className="text-cyan-400 font-semibold"> Mobile</span> com formação em
                             <span className="text-green-400 font-semibold"> Licenciatura em Informática</span>
@@ -193,7 +139,7 @@ export default function Hero() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 1 }}
-                            className="text-gray-400 leading-relaxed mb-8 max-w-2xl"
+                            className="text-gray-400 leading-relaxed mb-6 sm:mb-8 max-w-2xl mobile-text"
                         >
                             <p className="mb-4">
                                 Especializado em criar soluções modernas e escaláveis usando
@@ -211,25 +157,25 @@ export default function Hero() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 1.1 }}
-                            className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 max-w-2xl"
+                            className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8 max-w-2xl"
                         >
-                            <div className="flex items-center gap-3 p-4 bg-gray-800/50 rounded-xl border border-gray-700">
-                                <FiMail className="text-blue-400 text-xl" />
+                            <div className="flex items-center gap-3 p-3 sm:p-4 bg-gray-800/50 rounded-xl border border-gray-700">
+                                <FiMail className="text-blue-400 text-lg sm:text-xl" />
                                 <div>
-                                    <div className="text-gray-400 text-sm">Email</div>
-                                    <div className="text-white font-semibold">josemboane5@gmail.com</div>
+                                    <div className="text-gray-400 text-xs sm:text-sm">Email</div>
+                                    <div className="text-white font-semibold text-sm sm:text-base">josemboane5@gmail.com</div>
                                 </div>
                             </div>
-                            <div className="flex items-center gap-3 p-4 bg-gray-800/50 rounded-xl border border-gray-700">
-                                <FiMapPin className="text-cyan-400 text-xl" />
+                            <div className="flex items-center gap-3 p-3 sm:p-4 bg-gray-800/50 rounded-xl border border-gray-700">
+                                <FiMapPin className="text-cyan-400 text-lg sm:text-xl" />
                                 <div>
-                                    <div className="text-gray-400 text-sm">Telefone</div>
-                                    <div className="text-white font-semibold">+258 871 670 831</div>
+                                    <div className="text-gray-400 text-xs sm:text-sm">Telefone</div>
+                                    <div className="text-white font-semibold text-sm sm:text-base">+258 871 670 831</div>
                                 </div>
                             </div>
                         </motion.div>
 
-                        {/* Botões de ação - Mesma largura que as informações de contato */}
+                        {/* Botões de ação */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -258,24 +204,6 @@ export default function Hero() {
                         </motion.div>
                     </motion.div>
                 </div>
-
-                {/* Scroll indicator */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1.8 }}
-                    className="absolute bottom-8 left-1/2 transform -translate-x-1/2 mt-8"
-                >
-                    <motion.div
-                        animate={{ y: [0, 10, 0] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                        className="text-blue-400 text-2xl cursor-pointer"
-                        onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-                    >
-                        ↓
-                    </motion.div>
-                    <div className="text-blue-300 text-sm mt-2 text-center">Scroll</div>
-                </motion.div>
             </div>
         </section>
     );
